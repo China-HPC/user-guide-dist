@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<meta name="author" content="Xhzhang">
+<meta name="author" content="Dushaoxing">
 <title>Super HPC User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -430,15 +430,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <h1>Super HPC User Guide</h1>
 <div class="details">
-<span id="author" class="author">Xhzhang</span><br>
-<span id="email" class="email"><a href="mailto:zzz332191120@gmail.com">zzz332191120@gmail.com</a></span><br>
+<span id="author" class="author">Dushaoxing</span><br>
+<span id="email" class="email"><a href="mailto:dsx6559@gmail.com">dsx6559@gmail.com</a></span><br>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>HPC是一套及集群调度、管理、监控为一体的集群管理软件，可应用在各种科研及工业领域，通过我们的软件可以方便的调度集群的运算力为客户产生价值。该手册帮助用户了解如何使用HPC系统。</p>
+<p><strong>HPC是一套及集群调度、管理、监控为一体的集群管理软件，可应用在各种科研及工业领域，通过我们的软件可以方便的调度集群的运算力为客户产生价值。该手册帮助用户了解如何使用HPC系统。</strong></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -451,6 +451,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#初始化配置">2. 初始化配置</a></li>
+<li><a href="#功能介绍">3. 功能介绍</a></li>
+<li><a href="#作业系统">4. 作业系统</a></li>
+<li><a href="#集群管理">5. 集群管理</a></li>
+<li><a href="#集群监控">6. 集群监控</a></li>
+<li><a href="#集群报表">7. 集群报表</a></li>
+<li><a href="#用户资源">8. 用户资源</a></li>
+<li><a href="#附录">9. 附录</a>
+<ul class="sectlevel2">
+<li><a href="#作业状态对照表">9.1. 作业状态对照表</a></li>
+<li><a href="#配置文件_app_conf">9.2. 配置文件（app.conf）</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -461,7 +473,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="images/network-schema.png" alt="network schema">
 </div>
-<div class="title">Figure 1. 系统逻辑架构图</div>
 </div>
 <div class="sect2">
 <h3 id="节点类型">1.1. 节点类型</h3>
@@ -511,13 +522,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>管理网络：用户通过管理网络直接访问管理节点</p>
+<p>管理网络:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>用户通过管理网络直接访问管理节点</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>BMC网络：管理节点通过该网络连接集群中各节点的BMC设备，通过IPMI指令对节点进行开/关机操作、节点状态检测等</p>
+<p>BMC网络:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>管理节点通过该网络连接集群中各节点的BMC设备，通过IPMI指令对节点进行开/关机操作、节点状态检测等</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>计算网络：管理节点通过该网络连接集群中各节点，进行作业管理、存储管理等</p>
+<p>计算网络：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>管理节点通过该网络连接集群中各节点，进行作业管理、存储管理等</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -534,12 +566,1325 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-license_1.png" alt="system license 1">
+</div>
+</div>
+<div class="paragraph">
+<p>您必须拥有正确的产品许可才能正常使用本产品，许可信息中包含许可有效期、授权节点数量以及产品功能等信息，您可以通过菜单中<strong>系统工具 &#8594; 许可信息</strong>找到当前的许可信息，若要更新产品许可，请上传新的License文件。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-license_2.png" alt="system license 2">
+</div>
+</div>
+<div class="paragraph">
+<p><em>版权信息可根据您的需求通过修改安装目录下的ABOUT文件进行编辑</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>节点配置</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>在完成安装后，请以管理员身份登陆系统，点击主界面图例上的设置按钮进入节点配置界面，请根据实际情况完善机柜、节点角色、IPMI等信息。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>机柜配置</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>产品中的机柜为逻辑机柜，机柜中单个节点高度均为1U，绘制高度为10像素，方便您对节点进行组织并展示于主控面板中。机柜配置使用文本格式，请依次填写机柜名、机柜容纳节点的数量、绘图时X坐标、绘图时Y坐标等信息，以逗号分隔，每行为一个机柜。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-node-config_1.png" alt="system node config 1">
+</div>
+</div>
+<div class="paragraph">
+<p><em>机架单位是美国电子工业联盟（EIA）用来标定服务器、网络交换机等机房设备的单位。一个机架单位实际上为高度1.75英寸（44毫米），宽度为主流的19英寸（480毫米）及较少用的23英寸（580毫米）。 一个机架单位一般叫做"1U"， 2个机架单位则称之为"2U"，如此类推。</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-node-config_2.png" alt="system node config 2">
+</div>
+</div>
+<div class="paragraph">
+<p>产品部署后会自动收集各个节点的信息，在此基础上，请为各个节点配置下列信息：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>角色：用于区分节点角色，默认内置M（管理）、E（计算）、I（I/O）、T（登陆）四种角色</p>
+</li>
+<li>
+<p>机柜：机柜名</p>
+</li>
+<li>
+<p>机柜位置：机柜插槽位</p>
+</li>
+<li>
+<p>IPMI IP（可选）：用于节点开关机操作</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>删除节点：若需删除节点，请停用该节点上的hpc 服务，然后在管理节点中执行命令：hpc node delete [节点名] 清除节点相关数据。</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>IPMI配置（可选）</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-node-config_3.png" alt="system node config 3">
+</div>
+</div>
+<div class="paragraph">
+<p><em>您可以根据实际情况配置IPMI命令，例如: ipmitool -I lanplus -U root -P root ，无需指定IP以及开关机命令, 系统会根据您的操作自动补充-H {IP} chassis power {操作指令}</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>邮件配置（可选）</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-email-config.png" alt="system email config">
+</div>
+</div>
+<div class="paragraph">
+<p><em>请根据实际需求配置邮件选项，用于发送报警邮件。</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>公告配置（可选）</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/system-notice.png" alt="system notice">
+</div>
+</div>
+<div class="paragraph">
+<p><em>请根据实际需求配置公告配置，用于在<strong>首页</strong>显示公告信息。</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="功能介绍">3. 功能介绍</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>主控面板</strong></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/main-control-panel.png" alt="main control panel">
+</div>
+</div>
+<div class="paragraph">
+<p>主控面板提供了整个集群的信息概览，便于快速了解整个集群的工作状态，主控面板默认情况下左右分屏展示分为<strong>主视图区和辅助视图区</strong>，您可以通过机柜视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>主视图区</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>主视图区主要用于快速查看节点运行状态，您可以以机柜视图、拓扑视图或节点列表的方式查看各节点信息，方便快捷的完成各种节点相关的操作。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/main-view-area.png" alt="main view area">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>机柜视图
+在此区域内您可以点选、拖拽、放大机柜信息，可以快速查看各个节点的状态及系统信息，通过主视图区域右侧面板上的快捷按钮可以完成节点登陆、开关机、监控信息查看等操作。系统会根据各个节点的状态以不同颜色的状态灯和背景色绘制机柜图，节点状态一目了然。</p>
+</li>
+<li>
+<p><strong>拓扑图配置</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>您可以在拓扑视图中根据您的实际情况配置拓扑视图，具体操作方式:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>添加设备：在任意空白处单击鼠标右键，点击<strong>添加设备</strong>菜单，选择设备类型，勾选或者输入设备名称，点击确认完成添加。</p>
+</li>
+<li>
+<p>连接设备：在任意设备上单机鼠标右键，点击<strong>连接</strong>菜单，移动鼠标选择目标设备即可完成连线，在连线过程中点击任意空白处即可取消连线。</p>
+</li>
+<li>
+<p>移除设备：在任意设备上单机鼠标右键，点击<strong>移除</strong>菜单即可移除该设备，与该设备连接的所有连线将会一并移除。</p>
+</li>
+<li>
+<p>编辑连线：在任意设备上单机鼠标右键，点击<strong>编辑</strong>即可编辑该设备上的连线关系。</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/topology.png" alt="topology">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>节点列表</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/mgmt-node.png" alt="mgmt node">
+</div>
+</div>
+<div class="paragraph">
+<p>以列表的形式查看节点信息，可快速搜索、过滤节点。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>辅助视图区</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>辅助视图区默认展示集群信息概览，您可以通过主视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>管理员dashboard
+以管理员身份查看集群概览信息，包括：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>汇总的集群资源监控信息，便于快速了解集群当前的资源状态。</p>
+</li>
+<li>
+<p>集群资源的使用报表，便于快速了解集群近段时间的工作情况及使用率等信息。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/managers-dashboard.png" alt="managers dashboard">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>用户dashboard
+以用户身份登陆可查看最近某段时间该用户的作业提交情况以及最近进行的关键操作，如下图所示：</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-dashboard.png" alt="user dashboard">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>节点登陆</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>选择节点后点击控制面板上的bash按钮可登录到该节点，辅助视图区将用于TTY交互操作：</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/node-land.png" alt="node land">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>节点监控信息</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>选择节点后点击控制面板上的监控图按钮可查看该节点的监控信息，辅助视图区将用于监控信息展示：</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-center.png" alt="monitor center">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>其他功能</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>除此之外辅助视图区还可用于<strong>文件管理、监控报警</strong>查看等功能。</p>
+</div>
+<div class="paragraph">
+<p>您可以通过导航栏快捷菜单或左侧主菜单跳转到其他功能界面</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="作业系统">4. 作业系统</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>实时作业</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-job_1.png" alt="scheduler job 1">
+</div>
+</div>
+<div class="paragraph">
+<p>实时作业为您提供系统当前未完成的所有作业的信息概览，您可以通过状态筛选或查找快速定位您关心的作业。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-job_2.png" alt="scheduler job 2">
+</div>
+</div>
+<div class="paragraph">
+<p>点击作业ID可查看对应作业的详细信息，  在详情页中可以查看到完整的作业信息，更可以通过查看实时输出了解您的作业实时运行情况。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-job-add_1.png" alt="scheduler job add 1">
+</div>
+</div>
+<div class="paragraph">
+<p>点击新建作业，选择所需的应用类型（应用类型介绍详见下列<strong>应用模板</strong>），填写对应参数即可向系统中提交作业。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-job-add_2.png" alt="scheduler job add 2">
+</div>
+</div>
+<div class="paragraph">
+<p>高级选项中为您提供了更丰富的作业参数配置项，您可以将填写的各种参数保存为模板方便下次提交相似作业，具体操作详见下列<strong>作业模板</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>历史作业</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-history-job.png" alt="scheduler history job">
+</div>
+</div>
+<div class="paragraph">
+<p>结束运行后的作业在一段时间（默认为5分钟）后会转移到历史作业列表中，您可以在此处进行历史作业信息查询、下载作业输出文件等操作。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>队列配置</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-partition.png" alt="scheduler partition">
+</div>
+</div>
+<div class="paragraph">
+<p>一组包含特定特征的节点可组合成一个队列，通过队列配置菜单您可以方便快捷的新增、修改、删除调度系统的队列以满足不同的作业需求。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>作业模板</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-template.png" alt="scheduler template">
+</div>
+</div>
+<div class="paragraph">
+<p>将作业参数保存为作业模板可以让您方便快速的提交相似的作业，选择任一模板点击使用即可进入作业提交界面并自动填充模板中已定义好的参数，您只需修改少量参数即可提交作业。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>应用模板</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_1.png" alt="scheduler app 1">
+</div>
+</div>
+<div class="paragraph">
+<p>除了基本的脚本提交之外，HPC系统还为您提供了可自定义的应用模板。只需几步便可创建使用您所需的任意应用模板，满足特定的应用计算需求：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>步骤1：定义应用模板</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_2.png" alt="scheduler app 2">
+</div>
+</div>
+<div class="paragraph">
+<p>填写应用中英文名称，然后定义命令行模板。命令行模板中支持“环境变量”和“应用参数”两种变量，分别以<strong>$变量名和{{.变量名}}</strong>表示，以下图为例，名为“测试”的应用模板定义了如下命令行模板：</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_3.png" alt="scheduler app 3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>步骤2：定义应用界面</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_4.png" alt="scheduler app 4">
+</div>
+</div>
+<div class="paragraph">
+<p>从组件库中拖拽您所需的组件，以步骤1定义的命令行模板中的应用变量名为组件命名。本例中命名为STR</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>步骤3：使用应用模板</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_5.png" alt="scheduler app 5">
+</div>
+</div>
+<div class="paragraph">
+<p>使用应用模板提交作业，按照我们的定义，该作业将会依次输出下列内容：</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-app_6.png" alt="scheduler app 6">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>脚本规范</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/script.png" alt="script">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>文件管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-file-manager.png" alt="scheduler file manager">
+</div>
+</div>
+<div class="paragraph">
+<p>文件管理功能为您提供窗口化的文件管理界面</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="集群管理">5. 集群管理</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>节点管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/mgmt-node(2).png" alt="mgmt node(2)">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>节点管理列表中列出了当前系统中所有的节点，你可以对任意节点进行下列操作：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>登录节点</p>
+</li>
+<li>
+<p>查看监控信息</p>
+</li>
+<li>
+<p>开关机/重启</p>
+</li>
+<li>
+<p>设置允许/拒绝提交作业</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>并行命令</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/mgmt-pcm.png" alt="mgmt pcm">
+</div>
+</div>
+<div class="paragraph">
+<p>并行命令用于快速批量并行地在指定节点上执行相同命令</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>进程管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/mgmt-process.png" alt="mgmt process">
+</div>
+</div>
+<div class="paragraph">
+<p>进程管理中列出了指定节点的进程信息，您可以在此处管理您服务器上运行的进程。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>共享管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/mgmt-share.png" alt="mgmt share">
+</div>
+</div>
+<div class="paragraph">
+<p>共享管理中支持新增共享卷和挂载选项，目前支持的文件系统有：NFS，Lustre</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="集群监控">6. 集群监控</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>监控报警</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-alarm.png" alt="monitor alarm">
+</div>
+</div>
+<div class="paragraph">
+<p>监控报警中记录了集群各节点监控的各种指标的警报信息</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-alarm-set.png" alt="monitor alarm set">
+</div>
+</div>
+<div class="paragraph">
+<p>你可以为启用或禁用各个监控指标，也可以为他们设置不同的监控阈值。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-alarm-set_2.png" alt="monitor alarm set 2">
+</div>
+</div>
+<div class="paragraph">
+<p>您可以启用或禁用报警邮件通知，可以设置多个报警邮件接收人。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>服务状态</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-service.png" alt="monitor service">
+</div>
+</div>
+<div class="paragraph">
+<p>服务状态列出了当前受到监控的各项服务的运行状态，您可以自由的启用或禁用对某个服务的监控。如果您希望监控更多的服务，可以通过向/usr/hpc/monit目录中加入更多的符合标准的脚本或可执行程序来扩展服务监控。
+点击<strong>服务设置</strong>可为各个服务监控脚本配置运行所需的角色信息。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/monitor-service-setting.png" alt="monitor service setting">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="集群报表">7. 集群报表</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>资源报表</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/report-resource.png" alt="report resource">
+</div>
+</div>
+<div class="paragraph">
+<p>在资源报表中可以选择导出Excel或PDF</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>计费报表</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/report-charge.png" alt="report charge">
+</div>
+</div>
+<div class="paragraph">
+<p>在计费报表中可以选择导出Excel或PDF</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="用户资源">8. 用户资源</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>用户管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-list.png" alt="user list">
+</div>
+</div>
+<div class="paragraph">
+<p>在用户管理界面中可实现增加,删除系统用户</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>权限管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-config.png" alt="user config">
+</div>
+</div>
+<div class="paragraph">
+<p>可根据不同的用户给与不同的权限</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>资源限制</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-limit.png" alt="user limit">
+</div>
+</div>
+<div class="paragraph">
+<p>集群、用户、资源组、分区四个参数可构成一组唯一的关联信息，您可以为任意关联信息设置计算资源、最大作业数及最大提交数限制。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>资源预留</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-resource-rsrv.png" alt="user resource rsrv">
+</div>
+</div>
+<div class="paragraph">
+<p>您可以为指定的用户在指定的时段内预留指定的计算节点，被预留的计算节点在该时段内不会被其他用户的作业所占用，该功能也可以用于停机维护某些节点。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>资源组管理</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user-account.png" alt="user account">
+</div>
+</div>
+<div class="paragraph">
+<p>您可以为调度系统创建或删除资源组账户，用于资源限制功能中创建资源限制关联信息实现资源限制</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="附录">9. 附录</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="作业状态对照表">9.1. 作业状态对照表</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">编码缩写(Short code)</th>
+<th class="tableblock halign-left valign-top">状态名(State)</th>
+<th class="tableblock halign-left valign-top">英文含义 (meaning)</th>
+<th class="tableblock halign-left valign-top">中文翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOT_FAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job terminated due to launch failure, typically due to a hardware failure (e.g. unable to boot the node or block and the job can not be requeued).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业由于启动失败而终止，通常是由于硬件故障。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CANCELLED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job was explicitly cancelled by the user or system administrator. The job may or may not have been initiated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业被用户或系统管理员终止，该作业可能已经启动或者没有启动。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">COMPLETED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job has terminated all processes on all nodes with an exit code of zero.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业包含的每个进程在所有节点上都已结束且没有出现问题。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONFIGURING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job has been allocated resources, but are waiting for them to become ready for use (e.g. booting).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业已经被分配资源，正在等待所有资源准备就绪。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">COMPLETING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job is in the process of completing. Some processes on some nodes may still be active.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业正在完成中。某些节点上的某些进程可能仍然是活动的。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAILED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job terminated with non-zero exit code or other failure condition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">非零退出码结束或其他错误导致的作业终止。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NODE_FAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job terminated due to failure of one or more allocated nodes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业由于一个或多个分配的节点的故障而终止。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PENDING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job is awaiting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">正在等待资源分配。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PREEMPTED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job terminated due to preemption.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业由于资源被抢占而终止。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RV</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">REVOKED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sibling was removed from cluster due to other cluster starting the job.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业已转移到其他集群上。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RUNNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job currently has an allocation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业正在运行中。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SPECIAL_EXIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The job was requeued in a special state. This state can be set by users, typically in EpilogSlurmctld, if the job has terminated with a particular exit value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">特殊状态下的重新排队，该状态通常是由用户配置的EpilogSlurmctld设置的。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STOPPED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业已经分配运行，但执行过程由于接收到SIGSTOP信号而停止，该作业将继续保有已分配的CPU。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUSPENDED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job has an allocation, but execution has been suspended and CPUs have been released for other jobs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业在执行过程中被挂起，所分配的资源将被释放用于其他作业。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TIMEOUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Job terminated upon reaching its time limit.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">工作在达到期限后终止。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="配置文件_app_conf">9.2. 配置文件（app.conf）</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">配置项</th>
+<th class="tableblock halign-left valign-top">用途</th>
+<th class="tableblock halign-left valign-top">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Webserver配置:</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AppName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">应用名称</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hpc-backend</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示在登录界面的产品名称</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SuperHPC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProductLogo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示于登陆界面及菜单之上的logo名称</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SuperHPC</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AppData</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">程序安装目录</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/hpc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WebAppPath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">前端文件存放位置</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/hpc/webapp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP服务端口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8080</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RunMode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">运行模式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dev(生产环境中应为prod)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AutoRender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">自动渲染</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CopyRequestbody</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">请求参数解析</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnableDocs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否开启API文档</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnableErrorsRender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否由框架渲染错误信息</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnableAdmin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否启用webserver监控后台</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AdminAddr</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">webserver监控后台绑定地址</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AdminPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">webserver监控后台绑定端口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8088</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPAddr</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP服务绑定地址</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.0.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnableHTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否启用HTTPS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPSPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS端口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPSCertFile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">证书路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/hpc/conf/cert.pem</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPSKeyFile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">私钥路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/hpc/conf/key.pem</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis配置:</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisDB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis数据库</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisPasswd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis密码</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisHost</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis主机IP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">127.0.0.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis端口号</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6379</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisMaxIdle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis最大空闲连接数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisMaxActive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis最大连接数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisMaxTimeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redis连接超时时限</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">默认120秒</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL配置：</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBHost</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL主机地址</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">localhost</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL端口号</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3306</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL数据库名</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBPasswd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL数据库密码</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">空</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBUser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL用户名</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">root</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBDebug</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据库是否开启调试模式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flase</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HPC配置：</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HPCGroupID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">允许执行命令行操作的group id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ModelAdapter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据库适配器</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mysql</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SchedulerType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">调度管理器类型</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">slurm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PowerSeparation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否开启权限分离</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JWTSecret</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">签署Token所用的密钥</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MonitorInterval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">监控数据采集间隔</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30秒</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">身份认证方式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">basic（建议为NIS或LDAP）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NISServer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NIS服务主机名</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NISAdmin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NIS服务管理员用户</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">root</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NISMaker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NIS更新数据库所用的脚本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make -C /var/yp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LicensePath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">License文件存放位置</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/hpc/license</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LicensePlugin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">License插件名</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">license.so</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">License</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">License文件名</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">license.lic</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email服务配置</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{"Enable":false}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MailCMD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">邮件客户端命令</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MailChanBufferSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">邮件发件箱缓冲区大小</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1024</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnableLogger</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是否开启调试日志</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">关闭</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClusterName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">集群名</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RRDDir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RRD文件存放位置</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/var/lib/ganglia/rrds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InterfaceHost</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">管理节点网卡名</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">InterfaceAgent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">与计算节点相连的网卡名</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JobCollectInterval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作业信息收集频率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5分钟收集一次</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APPDir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">应用模板存放路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$HPC_ROOT/applications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WorkDir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">应用模板作业路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$HPC_ROOT/applications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MonitorProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">监控模块适配器</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ganglia</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AboutFile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">版权信息描述文件路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$HPC_ROOT/ABOUT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP配置：</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPHost</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP主机</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP端口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPEnableSSL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">开启SSL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPUserRDN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP条目</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPServerName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP服务名称</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAdminDN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP管理员条目</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAdminPassword</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP管理员密码</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPMinUID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP最小uid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPMaxUID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP最大uid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">65535</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAttrHomeDir</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">homeDirectory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAttrUID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uidNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAttrGID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gidNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAttrLoginShell</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">loginShell</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPAttrPassword</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">userPassword</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAPUserObjectClasses</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inetOrgPerson;organizationalPerson;posixAccount</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">global配置：</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisHost</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">管理节点的Redis服务地址</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">根据各节点实际网络情况配置</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RedisPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">管理节点的Redis服务端口</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6379</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TTYPort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TTY服务端口号</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8080</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HealthCheckInterval</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">agent服务健康检查周期</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60秒</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HeartBeatInterva</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">agent心跳包发送频率</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10秒</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServicesMonitScriptsDir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">服务监控脚本存放位置</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$HPC_ROOT/monit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MgmtSubnetMask</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">管理网络子网掩码</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">255.255.255.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PCMOutputDir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">并行命令输出路径</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/home/pcm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PcmMaxOutput</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">并行命令最大输出字节数</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1024</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PcmChanBufferSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">并行命令缓冲区大小</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500条</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-05 08:04:42 UTC
+Last updated 2018-03-06 02:41:42 UTC
 </div>
 </div>
 </body>
