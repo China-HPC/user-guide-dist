@@ -5,7 +5,6 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<meta name="author" content="Dushaoxing">
 <title>Super HPC User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -429,16 +428,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <body class="article">
 <div id="header">
 <h1>Super HPC User Guide</h1>
-<div class="details">
-<span id="author" class="author">Dushaoxing</span><br>
-<span id="email" class="email"><a href="mailto:dsx6559@gmail.com">dsx6559@gmail.com</a></span><br>
-</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>HPC是一套及集群调度、管理、监控为一体的集群管理软件，可应用在各种科研及工业领域，通过我们的软件可以方便的调度集群的运算力为客户产生价值。该手册帮助用户了解如何使用HPC系统。</strong></p>
+<p><strong>HPC是一套集群调度、管理、监控为一体的集群管理软件，可应用在各种科研及工业领域，通过我们的软件可以方便的调度集群的运算力为客户产生价值。该手册帮助用户了解如何使用HPC系统。</strong></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -450,17 +445,73 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#网络类型">1.2. 网络类型</a></li>
 </ul>
 </li>
-<li><a href="#初始化配置">2. 初始化配置</a></li>
-<li><a href="#功能介绍">3. 功能介绍</a></li>
-<li><a href="#作业系统">4. 作业系统</a></li>
-<li><a href="#集群管理">5. 集群管理</a></li>
-<li><a href="#集群监控">6. 集群监控</a></li>
-<li><a href="#集群报表">7. 集群报表</a></li>
-<li><a href="#用户资源">8. 用户资源</a></li>
-<li><a href="#附录">9. 附录</a>
+<li><a href="#初始化配置">2. 初始化配置</a>
 <ul class="sectlevel2">
-<li><a href="#作业状态对照表">9.1. 作业状态对照表</a></li>
-<li><a href="#配置文件_app_conf">9.2. 配置文件（app.conf）</a></li>
+<li><a href="#license配置">2.1. License配置</a></li>
+<li><a href="#节点配置">2.2. 节点配置</a></li>
+<li><a href="#机柜配置">2.3. 机柜配置</a></li>
+<li><a href="#其他配置">2.4. 其他配置</a></li>
+</ul>
+</li>
+<li><a href="#功能介绍">3. 功能介绍</a>
+<ul class="sectlevel2">
+<li><a href="#主控面板">3.1. 主控面板</a></li>
+<li><a href="#主视图区">3.2. 主视图区</a></li>
+<li><a href="#拓扑图配置">3.3. 拓扑图配置</a></li>
+<li><a href="#辅助视图区">3.4. 辅助视图区</a></li>
+</ul>
+</li>
+<li><a href="#作业系统">4. 作业系统</a>
+<ul class="sectlevel2">
+<li><a href="#实时作业">4.1. 实时作业</a></li>
+<li><a href="#历史作业">4.2. 历史作业</a></li>
+<li><a href="#队列配置">4.3. 队列配置</a></li>
+<li><a href="#作业模板">4.4. 作业模板</a></li>
+<li><a href="#应用模板">4.5. 应用模板</a></li>
+<li><a href="#文件管理">4.6. 文件管理</a></li>
+</ul>
+</li>
+<li><a href="#集群管理">5. 集群管理</a>
+<ul class="sectlevel2">
+<li><a href="#节点管理">5.1. 节点管理</a></li>
+<li><a href="#并行命令">5.2. 并行命令</a></li>
+<li><a href="#进程管理">5.3. 进程管理</a></li>
+<li><a href="#共享管理">5.4. 共享管理</a></li>
+</ul>
+</li>
+<li><a href="#集群监控">6. 集群监控</a>
+<ul class="sectlevel2">
+<li><a href="#监控报警">6.1. 监控报警</a></li>
+<li><a href="#服务状态">6.2. 服务状态</a></li>
+</ul>
+</li>
+<li><a href="#集群报表">7. 集群报表</a>
+<ul class="sectlevel2">
+<li><a href="#资源报表">7.1. 资源报表</a></li>
+<li><a href="#计费报表">7.2. 计费报表</a></li>
+</ul>
+</li>
+<li><a href="#用户资源">8. 用户资源</a>
+<ul class="sectlevel2">
+<li><a href="#用户管理">8.1. 用户管理</a></li>
+<li><a href="#权限管理">8.2. 权限管理</a></li>
+<li><a href="#资源限制">8.3. 资源限制</a></li>
+<li><a href="#资源预留">8.4. 资源预留</a></li>
+<li><a href="#资源组管理">8.5. 资源组管理</a></li>
+</ul>
+</li>
+<li><a href="#轻量级虚拟化">9. 轻量级虚拟化</a>
+<ul class="sectlevel2">
+<li><a href="#安装singularity">9.1. 安装Singularity</a></li>
+<li><a href="#制作镜像">9.2. 制作镜像</a></li>
+<li><a href="#编写脚本或制作应用模版">9.3. 编写脚本或制作应用模版</a></li>
+</ul>
+</li>
+<li><a href="#附录">10. 附录</a>
+<ul class="sectlevel2">
+<li><a href="#作业状态对照表">10.1. 作业状态对照表</a></li>
+<li><a href="#配置文件_app_conf">10.2. 配置文件（app.conf）</a></li>
+<li><a href="#初始化页面">10.3. 初始化页面</a></li>
 </ul>
 </li>
 </ul>
@@ -559,13 +610,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="初始化配置">2. 初始化配置</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>License配置</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="license配置">2.1. License配置</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/system-license_1.png" alt="system license 1">
@@ -582,10 +628,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p><em>版权信息可根据您的需求通过修改安装目录下的ABOUT文件进行编辑</em></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>节点配置</strong></p>
+</div>
+<div class="sect2">
+<h3 id="节点配置">2.2. 节点配置</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -593,16 +638,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>机柜配置</strong></p>
+</div>
+<div class="sect2">
+<h3 id="机柜配置">2.3. 机柜配置</h3>
 <div class="ulist">
 <ul>
 <li>
 <p>产品中的机柜为逻辑机柜，机柜中单个节点高度均为1U，绘制高度为10像素，方便您对节点进行组织并展示于主控面板中。机柜配置使用文本格式，请依次填写机柜名、机柜容纳节点的数量、绘图时X坐标、绘图时Y坐标等信息，以逗号分隔，每行为一个机柜。</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -641,10 +683,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p><em>删除节点：若需删除节点，请停用该节点上的hpc 服务，然后在管理节点中执行命令：hpc node delete [节点名] 清除节点相关数据。</em></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="其他配置">2.4. 其他配置</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>IPMI配置（可选）</strong></p>
+<p>IPMI配置（可选）</p>
 </li>
 </ul>
 </div>
@@ -659,7 +704,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><strong>邮件配置（可选）</strong></p>
+<p>邮件配置（可选）</p>
 </li>
 </ul>
 </div>
@@ -674,7 +719,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><strong>公告配置（可选）</strong></p>
+<p>公告配置（可选）</p>
 </li>
 </ul>
 </div>
@@ -688,16 +733,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="功能介绍">3. 功能介绍</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>主控面板</strong></p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="主控面板">3.1. 主控面板</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/main-control-panel.png" alt="main control panel">
@@ -706,13 +747,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>主控面板提供了整个集群的信息概览，便于快速了解整个集群的工作状态，主控面板默认情况下左右分屏展示分为<strong>主视图区和辅助视图区</strong>，您可以通过机柜视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>主视图区</strong></p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="主视图区">3.2. 主视图区</h3>
 <div class="paragraph">
 <p>主视图区主要用于快速查看节点运行状态，您可以以机柜视图、拓扑视图或节点列表的方式查看各节点信息，方便快捷的完成各种节点相关的操作。</p>
 </div>
@@ -727,11 +764,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>机柜视图
 在此区域内您可以点选、拖拽、放大机柜信息，可以快速查看各个节点的状态及系统信息，通过主视图区域右侧面板上的快捷按钮可以完成节点登陆、开关机、监控信息查看等操作。系统会根据各个节点的状态以不同颜色的状态灯和背景色绘制机柜图，节点状态一目了然。</p>
 </li>
-<li>
-<p><strong>拓扑图配置</strong></p>
-</li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="拓扑图配置">3.3. 拓扑图配置</h3>
 <div class="paragraph">
 <p>您可以在拓扑视图中根据您的实际情况配置拓扑视图，具体操作方式:</p>
 </div>
@@ -771,13 +808,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>以列表的形式查看节点信息，可快速搜索、过滤节点。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>辅助视图区</strong></p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="辅助视图区">3.4. 辅助视图区</h3>
 <div class="paragraph">
 <p>辅助视图区默认展示集群信息概览，您可以通过主视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
 </div>
@@ -832,6 +865,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="images/node-land.png" alt="node land">
 </div>
 </div>
+<div class="paragraph">
+<p>选择节点后点击控制面板上的远程连接按钮进行vnc/rdp配置，并进行远程连接；</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/node-details_1.png" alt="node details 1">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -862,16 +903,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="作业系统">4. 作业系统</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>实时作业</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="实时作业">4.1. 实时作业</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-job_1.png" alt="scheduler job 1">
@@ -904,13 +941,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>高级选项中为您提供了更丰富的作业参数配置项，您可以将填写的各种参数保存为模板方便下次提交相似作业，具体操作详见下列<strong>作业模板</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>历史作业</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="历史作业">4.2. 历史作业</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-history-job.png" alt="scheduler history job">
@@ -919,13 +952,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>结束运行后的作业在一段时间（默认为5分钟）后会转移到历史作业列表中，您可以在此处进行历史作业信息查询、下载作业输出文件等操作。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>队列配置</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="队列配置">4.3. 队列配置</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-partition.png" alt="scheduler partition">
@@ -934,13 +963,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>一组包含特定特征的节点可组合成一个队列，通过队列配置菜单您可以方便快捷的新增、修改、删除调度系统的队列以满足不同的作业需求。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>作业模板</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="作业模板">4.4. 作业模板</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-template.png" alt="scheduler template">
@@ -949,13 +974,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>将作业参数保存为作业模板可以让您方便快速的提交相似的作业，选择任一模板点击使用即可进入作业提交界面并自动填充模板中已定义好的参数，您只需修改少量参数即可提交作业。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>应用模板</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="应用模板">4.5. 应用模板</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-app_1.png" alt="scheduler app 1">
@@ -1031,13 +1052,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="images/script.png" alt="script">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>文件管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="文件管理">4.6. 文件管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduler-file-manager.png" alt="scheduler file manager">
@@ -1048,16 +1065,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="集群管理">5. 集群管理</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>节点管理</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="节点管理">5.1. 节点管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/mgmt-node(2).png" alt="mgmt node(2)">
@@ -1084,11 +1097,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </li>
-<li>
-<p>并行命令</p>
-</li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="并行命令">5.2. 并行命令</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/mgmt-pcm.png" alt="mgmt pcm">
@@ -1097,13 +1110,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>并行命令用于快速批量并行地在指定节点上执行相同命令</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>进程管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="进程管理">5.3. 进程管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/mgmt-process.png" alt="mgmt process">
@@ -1112,13 +1121,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>进程管理中列出了指定节点的进程信息，您可以在此处管理您服务器上运行的进程。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>共享管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="共享管理">5.4. 共享管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/mgmt-share.png" alt="mgmt share">
@@ -1129,16 +1134,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="集群监控">6. 集群监控</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>监控报警</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="监控报警">6.1. 监控报警</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/monitor-alarm.png" alt="monitor alarm">
@@ -1163,13 +1164,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>您可以启用或禁用报警邮件通知，可以设置多个报警邮件接收人。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>服务状态</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="服务状态">6.2. 服务状态</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/monitor-service.png" alt="monitor service">
@@ -1186,16 +1183,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="集群报表">7. 集群报表</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>资源报表</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="资源报表">7.1. 资源报表</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/report-resource.png" alt="report resource">
@@ -1204,13 +1197,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>在资源报表中可以选择导出Excel或PDF</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>计费报表</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="计费报表">7.2. 计费报表</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/report-charge.png" alt="report charge">
@@ -1221,16 +1210,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="用户资源">8. 用户资源</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>用户管理</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="用户管理">8.1. 用户管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-list.png" alt="user list">
@@ -1239,13 +1224,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>在用户管理界面中可实现增加,删除系统用户</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>权限管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="权限管理">8.2. 权限管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-config.png" alt="user config">
@@ -1254,13 +1235,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>可根据不同的用户给与不同的权限</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>资源限制</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="资源限制">8.3. 资源限制</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-limit.png" alt="user limit">
@@ -1269,13 +1246,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>集群、用户、资源组、分区四个参数可构成一组唯一的关联信息，您可以为任意关联信息设置计算资源、最大作业数及最大提交数限制。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>资源预留</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="资源预留">8.4. 资源预留</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-resource-rsrv.png" alt="user resource rsrv">
@@ -1284,13 +1257,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>您可以为指定的用户在指定的时段内预留指定的计算节点，被预留的计算节点在该时段内不会被其他用户的作业所占用，该功能也可以用于停机维护某些节点。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>资源组管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="资源组管理">8.5. 资源组管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/user-account.png" alt="user account">
@@ -1301,11 +1270,96 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="附录">9. 附录</h2>
+<h2 id="轻量级虚拟化">9. 轻量级虚拟化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>通过`Singularity`容器虚拟化技术，您可以将原有的应用环境无缝与HPC系统相结合，从而实现应用环境的兼容。`Singularity`可以用于打包整个科学计算所需的工作流程，软件和库甚至数据。无需配置文件挂载或虚拟网络，`Singularity`比`Docker`更适用于HPC环境，并且与`Docker`镜像兼容。您只需如下几步即可完成应用环境的集成：</p>
+</div>
+<div class="sect2">
+<h3 id="安装singularity">9.1. 安装Singularity</h3>
+<div class="paragraph">
+<p>以CentOS上安装2.5.1版本为例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>VERSION=2.5.1
+wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
+tar xvf singularity-$VERSION.tar.gz
+cd singularity-$VERSION
+./configure --prefix=/usr/local
+make
+sudo make install
+yum install -y squashfs-tools</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>更多安装方式请参考： <a href="http://singularity.lbl.gov/install-linux">Singularity安装文档</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="制作镜像">9.2. 制作镜像</h3>
+<div class="paragraph">
+<p>以基于Ubuntu定制镜像为例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>singularity build --writable ubuntu.img docker://ubuntu</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该操作会在执行命令的当前路径下生成一个ubuntu.img的镜像文件，您可以通过以下命令进入该镜像环境下执行命令：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>singularity shell ubuntu.img</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/singularity-shell.png" alt="singularity shell">
+</div>
+</div>
+<div class="paragraph">
+<p>在该镜像中安装您的应用环境。然后您可以通过如下命令调用镜像中的程序，应用将在该镜像环境中运行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>USAGE: singularity [...] exec [exec options...] &lt;container path&gt; &lt;command&gt;
+例如：singularity exec ubuntu.img apt-get install vim</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/singularity-exec.png" alt="singularity exec">
+</div>
+</div>
+<div class="paragraph">
+<p>更多操作请参考： <a href="http://singularity.lbl.gov/quickstart">Singularity文档</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="编写脚本或制作应用模版">9.3. 编写脚本或制作应用模版</h3>
+<div class="paragraph">
+<p>完成镜像制作后，您可以自行编写脚本以完成您所需的计算工作。只需要将原来的命令前加上singularity exec &lt;container path&gt;，例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>singularity exec /home/test/ubuntu.img apt-get install vim</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>您也可以创建应用模版来简化该过程，模版编辑请参考：<a href="index.html#应用模板">应用模版</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="附录">10. 附录</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="作业状态对照表">9.1. 作业状态对照表</h3>
+<h3 id="作业状态对照表">10.1. 作业状态对照表</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -1416,7 +1470,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="配置文件_app_conf">9.2. 配置文件（app.conf）</h3>
+<h3 id="配置文件_app_conf">10.2. 配置文件（app.conf）</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1879,12 +1933,132 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="初始化页面">10.3. 初始化页面</h3>
+<div class="paragraph">
+<p>HPC程序在部署完成后，输入主控节点IP进行网页访问，默认第一次会进入初始化页面引导用户配置</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>选择认证方式</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_1.png" alt="init html 1">
+</div>
+</div>
+<div class="paragraph">
+<p>认证方式有Basic，NIS，LDAP</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>NIS认证方式</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_2.png" alt="init html 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LDAP认证方式</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_3.png" alt="init html 3">
+</div>
+</div>
+<div class="paragraph">
+<p>选择不同的认证方式，请根据提示输入信息</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>输入管理员账户</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_4.png" alt="init html 4">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>选择是否开启邮件服务</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_5.png" alt="init html 5">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>配置作业规模</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_6.png" alt="init html 6">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>设置用户区间</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_7.png" alt="init html 7">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>用户导入</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_8.png" alt="init html 8">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>导入完用户之后跳转到登陆界面，请根据实际用户信息登陆</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/init-html_9.png" alt="init html 9">
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-06 02:41:42 UTC
+Last updated 2018-05-12 03:53:17 UTC
 </div>
 </div>
 </body>
