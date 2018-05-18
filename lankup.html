@@ -445,11 +445,46 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#网络类型">1.2. 网络类型</a></li>
 </ul>
 </li>
-<li><a href="#功能介绍">2. 功能介绍</a></li>
-<li><a href="#备份系统">3. 备份系统</a></li>
-<li><a href="#集群管理">4. 集群管理</a></li>
-<li><a href="#集群监控">5. 集群监控</a></li>
-<li><a href="#系统配置">6. 系统配置</a></li>
+<li><a href="#功能介绍">2. 功能介绍</a>
+<ul class="sectlevel2">
+<li><a href="#主控面板">2.1. 主控面板</a></li>
+<li><a href="#主视图区">2.2. 主视图区</a></li>
+<li><a href="#拓扑图配置">2.3. 拓扑图配置</a></li>
+<li><a href="#辅助视图区">2.4. 辅助视图区</a></li>
+<li><a href="#节点登陆">2.5. 节点登陆</a></li>
+<li><a href="#节点监控信息">2.6. 节点监控信息</a></li>
+</ul>
+</li>
+<li><a href="#备份系统">3. 备份系统</a>
+<ul class="sectlevel2">
+<li><a href="#任务列表">3.1. 任务列表</a></li>
+<li><a href="#运行任务">3.2. 运行任务</a></li>
+<li><a href="#存储管理">3.3. 存储管理</a></li>
+<li><a href="#客户端管理">3.4. 客户端管理</a></li>
+<li><a href="#备份卷管理">3.5. 备份卷管理</a></li>
+<li><a href="#介质池管理">3.6. 介质池管理</a></li>
+<li><a href="#恢复向导">3.7. 恢复向导</a></li>
+</ul>
+</li>
+<li><a href="#集群管理">4. 集群管理</a>
+<ul class="sectlevel2">
+<li><a href="#节点管理">4.1. 节点管理</a></li>
+<li><a href="#并行命令">4.2. 并行命令</a></li>
+<li><a href="#进程管理">4.3. 进程管理</a></li>
+</ul>
+</li>
+<li><a href="#集群监控">5. 集群监控</a>
+<ul class="sectlevel2">
+<li><a href="#监控报警">5.1. 监控报警</a></li>
+<li><a href="#服务状态">5.2. 服务状态</a></li>
+</ul>
+</li>
+<li><a href="#系统配置">6. 系统配置</a>
+<ul class="sectlevel2">
+<li><a href="#配置文件">6.1. 配置文件</a></li>
+<li><a href="#节点配置">6.2. 节点配置</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -461,17 +496,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>管理节点（M）:</p>
+<p>主控节点:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>负责监听所有的备份/恢复等操作，并记录数据库</p>
+<p>提供鉴权，任务管理及数据记录等功能</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>客户端（C）:</p>
+<p>客户端:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -532,7 +567,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>管理节点通过该网络连接集群中各节点，进行作业管理、存储管理等</p>
+<p>管理节点通过该网络连接集群中各节点，进行任务管理、存储管理等</p>
 </li>
 </ul>
 </div>
@@ -545,13 +580,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="功能介绍">2. 功能介绍</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>主控面板</strong></p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="主控面板">2.1. 主控面板</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/main-control-panel.png" alt="main control panel">
@@ -560,13 +590,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>主控面板提供了整个集群的信息概览，便于快速了解整个集群的工作状态，主控面板默认情况下左右分屏展示分为<strong>主视图区和辅助视图区</strong>，您可以通过机柜视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>主视图区</strong></p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="主视图区">2.2. 主视图区</h3>
 <div class="paragraph">
 <p>主视图区主要用于快速查看节点运行状态，您可以以机柜视图或拓扑视图的方式查看各节点信息，方便快捷的完成各种节点相关的操作。</p>
 </div>
@@ -581,11 +607,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>机柜视图
 在此区域内您可以点选、拖拽、放大机柜信息，可以快速查看各个节点的状态及系统信息，通过主视图区域右侧面板上的快捷按钮可以完成节点登陆、开关机、监控信息查看等操作。系统会根据各个节点的状态以不同颜色的状态灯和背景色绘制机柜图，节点状态一目了然。</p>
 </li>
-<li>
-<p><strong>拓扑图配置</strong></p>
-</li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="拓扑图配置">2.3. 拓扑图配置</h3>
 <div class="paragraph">
 <p>您可以在拓扑视图中根据您的实际情况配置拓扑视图，具体操作方式:</p>
 </div>
@@ -610,28 +636,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="lankup-images/topology.png" alt="topology">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>节点列表</p>
-</li>
-</ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="lankup-images/mgmt-node.png" alt="mgmt node">
-</div>
-</div>
-<div class="paragraph">
-<p>以列表的形式查看节点信息，可快速搜索、过滤节点。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>辅助视图区</strong></p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="辅助视图区">2.4. 辅助视图区</h3>
 <div class="paragraph">
 <p>辅助视图区默认展示集群信息概览，您可以通过主视图区提供的快捷菜单切换或隐藏辅助视图区的内容。</p>
 </div>
@@ -658,13 +665,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="lankup-images/managers-dashboard.png" alt="managers dashboard">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>节点登陆</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="节点登陆">2.5. 节点登陆</h3>
 <div class="paragraph">
 <p>选择节点后点击控制面板上的bash按钮可登录到该节点，辅助视图区将用于TTY交互操作：</p>
 </div>
@@ -673,13 +676,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="lankup-images/node-details_1.png" alt="node details 1">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>节点监控信息</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="节点监控信息">2.6. 节点监控信息</h3>
 <div class="paragraph">
 <p>选择节点后点击控制面板上的监控图按钮可查看该节点的监控信息，辅助视图区将用于监控信息展示：</p>
 </div>
@@ -690,31 +689,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="备份系统">3. 备份系统</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>任务列表</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="任务列表">3.1. 任务列表</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/backup-workspace-tasks_1.png" alt="backup workspace tasks 1">
 </div>
 </div>
 <div class="paragraph">
-<p>任务列表为您提供系统当前所完成任务的信息概览，您可以通过查找快速定位您关心的任务；点击<strong>操作</strong>可以选择重新运行任务和配置参数。</p>
+<p>任务列表为您提供系统当前所完成任务的信息概览，您可以通过搜索任务/选择状态快速定位您关心的任务；点击<strong>操作</strong>可以选择重新运行任务和配置参数。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>运行备份任务</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="运行任务">3.2. 运行任务</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/workspace-run.png" alt="workspace run">
@@ -744,13 +735,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>任务完成后可以选择操纵按钮，重新配置参数后，提交任务重新运行</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>存储管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="存储管理">3.3. 存储管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/workspace-storage.png" alt="workspace storage">
@@ -759,13 +746,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>存储管理用来指定备份和恢复数据的存储介质（存储介质可以是本地磁盘，光纤磁盘阵列、磁带和DVD等），主要负责将数据备份到存储介质上。而在数据恢复时，负责将数据从存储介质中传送出去；点击操作按钮包含有：挂载，释放，卸载，状态</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>客户端管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="客户端管理">3.4. 客户端管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/scheduler-template.png" alt="scheduler template">
@@ -775,13 +758,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>客户端是一个安装在需要备份数据的机器上的守护进程，在备份数据时，它负责把文件传出；在恢复数据时，它负责接收数据并执行恢复操作；
 点击操作按钮可方便查看每一台客户端的任务/状态</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>备份卷管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="备份卷管理">3.5. 备份卷管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/scheduler-volume.png" alt="scheduler volume">
@@ -790,13 +769,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>备份卷是存储数据的具体设备或数据文件；选中对应的备份卷可以进行删除，修改等操作</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>介质池管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="介质池管理">3.6. 介质池管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/scheduler-pool.png" alt="scheduler pool">
@@ -805,13 +780,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>介质池是将卷组合在一起，以便备份不受限于单个卷的大小；点击操作按钮可对介质池进行更新/查看状态操作</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>恢复向导</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="恢复向导">3.7. 恢复向导</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/scheduler-restore_1.png" alt="scheduler restore 1">
@@ -828,21 +799,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>下一步选择恢复方式和要恢复的备份源是哪个</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="lankup-images/scheduler-restore_3.png" alt="scheduler restore 3">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="lankup-images/scheduler-restore_4.png" alt="scheduler restore 4">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="lankup-images/scheduler-restore_5.png" alt="scheduler restore 5">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="集群管理">4. 集群管理</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>节点管理</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="节点管理">4.1. 节点管理</h3>
 <div class="imageblock">
 <div class="content">
-<img src="lankup-images/mgmt-node(2).png" alt="mgmt node(2)">
+<img src="lankup-images/mgmt-node.png" alt="mgmt node">
 </div>
 </div>
 <div class="ulist">
@@ -863,11 +845,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </li>
-<li>
-<p>并行命令</p>
-</li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="并行命令">4.2. 并行命令</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/mgmt-pcm.png" alt="mgmt pcm">
@@ -876,13 +858,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>并行命令用于快速批量并行地在指定节点上执行相同命令</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>进程管理</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="进程管理">4.3. 进程管理</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/mgmt-process.png" alt="mgmt process">
@@ -893,16 +871,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="集群监控">5. 集群监控</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>监控报警</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="监控报警">5.1. 监控报警</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/monitor-alarm.png" alt="monitor alarm">
@@ -927,13 +901,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>您可以启用或禁用报警邮件通知，可以设置多个报警邮件接收人。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>服务状态</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="服务状态">5.2. 服务状态</h3>
 <div class="imageblock">
 <div class="content">
 <img src="lankup-images/monitor-service.png" alt="monitor service">
@@ -951,23 +921,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>脚本规范
-image::script.png[]</p>
+<p>脚本规范</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="lankup-images/script.png" alt="script">
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="系统配置">6. 系统配置</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>配置文件</p>
-</li>
-<li>
-<p>节点配置</p>
+<div class="sect2">
+<h3 id="配置文件">6.1. 配置文件</h3>
+
+</div>
+<div class="sect2">
+<h3 id="节点配置">6.2. 节点配置</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -978,9 +952,6 @@ image::script.png[]</p>
 </li>
 <li>
 <p>产品中的机柜为逻辑机柜，机柜中单个节点高度均为1U，绘制高度为10像素，方便您对节点进行组织并展示于主控面板中。机柜配置使用文本格式，请依次填写机柜名、机柜容纳节点的数量、绘图时X坐标、绘图时Y坐标等信息，以逗号分隔，每行为一个机柜。</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -1019,9 +990,10 @@ image::script.png[]</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-05-18 03:28:08 UTC
+Last updated 2018-05-18 03:29:46 UTC
 </div>
 </div>
 </body>
